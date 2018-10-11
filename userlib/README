@@ -1,0 +1,4 @@
+This is the user-library for the CS161 project 2 (Go version).
+
+The userlib_test.go file is a useful file to see how to use the
+primitives as well.

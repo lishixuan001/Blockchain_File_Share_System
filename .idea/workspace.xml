@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da1b9c87-ce69-4d6c-973a-00dcdff4fa73" name="Default Changelist" comment="" />
+    <list default="true" id="da1b9c87-ce69-4d6c-973a-00dcdff4fa73" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WechatIMG661.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj2/proj2.go" beforeDir="false" afterPath="$PROJECT_DIR$/proj2/proj2.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj2/proj2_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/proj2/proj2_test.go" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,58 +18,53 @@
     <session id="-1777235980">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="go" value="15" />
+          <entry key="go" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Go" value="15" />
+          <entry key="Go" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="23908" />
+          <entry key="go" value="29314" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="23908" />
+          <entry key="Go" value="29314" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4828326">
+    <splitter split-orientation="horizontal" split-proportion="0.49928468">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/proj2/proj2.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-                  <folding>
-                    <element signature="e#23924#23945#0" />
-                    <element signature="e#24583#24604#0" />
-                    <element signature="e#24726#24747#0" />
-                    <element signature="e#26148#26169#0" />
-                    <element signature="e#27160#27181#0" />
-                    <element signature="e#26921#26942#0" />
-                    <element signature="e#27686#27703#0" />
-                    <element signature="e#28564#28581#0" />
-                    <element signature="e#28880#28897#0" />
-                    <element signature="e#34956#35054#0" />
-                    <element signature="e#35768#35770#0" />
-                    <element signature="e#35996#36013#0" />
-                  </folding>
+                <state relative-caret-position="322">
+                  <caret line="826" column="25" lean-forward="true" selection-start-line="826" selection-start-column="25" selection-end-line="826" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/uuid-1.0.0/uuid.go">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2160">
+                  <caret line="98" selection-start-line="98" selection-end-line="98" />
                 </state>
               </provider>
             </entry>
@@ -71,21 +72,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/proj2/proj2_test.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="314">
-                  <caret line="54" column="29" lean-forward="true" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-                  <folding>
-                    <element signature="e#2260#2304#0" />
-                    <element signature="e#2360#2408#0" />
-                    <element signature="e#2548#2596#0" />
-                    <element signature="e#4120#4164#0" />
-                    <element signature="e#4213#4257#0" />
-                    <element signature="e#4311#4355#0" />
-                    <element signature="e#4615#4676#0" />
-                    <element signature="e#4744#4805#0" />
-                    <element signature="e#5650#5711#0" />
-                    <element signature="e#5916#5977#0" />
-                    <element signature="e#6114#6199#0" />
-                  </folding>
+                <state relative-caret-position="1248">
+                  <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
                 </state>
               </provider>
             </entry>
@@ -97,8 +85,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/proj2/proj2.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-13531">
-                  <caret line="338" selection-start-line="338" selection-end-line="338" selection-end-column="84" />
+                <state relative-caret-position="270">
+                  <caret line="362" column="18" lean-forward="true" selection-start-line="362" selection-start-column="18" selection-end-line="362" selection-end-column="35" />
                 </state>
               </provider>
             </entry>
@@ -106,13 +94,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/proj2/proj2_test.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2428">
-                  <caret line="289" column="4" selection-start-line="289" selection-start-column="4" selection-end-line="289" selection-end-column="37" />
-                  <folding>
-                    <element signature="e#2482#2526#0" />
-                    <element signature="e#2582#2630#0" />
-                    <element signature="e#2688#2736#0" />
-                  </folding>
+                <state relative-caret-position="443">
+                  <caret line="290" lean-forward="true" selection-start-line="290" selection-end-line="290" />
                 </state>
               </provider>
             </entry>
@@ -120,8 +103,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/userlib/userlib.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1656">
-                  <caret line="155" column="36" lean-forward="true" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="36" />
+                <state relative-caret-position="125">
+                  <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
                 </state>
               </provider>
             </entry>
@@ -142,15 +125,21 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>FILELINK</find>
+      <find>append</find>
+      <find>filedata</find>
+      <find>:= json.m</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/Cellar/go/1.10" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/userlib/userlib.go" />
-        <option value="$PROJECT_DIR$/proj2/proj2.go" />
         <option value="$PROJECT_DIR$/proj2/proj2_test.go" />
+        <option value="$PROJECT_DIR$/proj2/proj2.go" />
       </list>
     </option>
   </component>
@@ -160,7 +149,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="40" />
     <option name="width" value="1400" />
     <option name="height" value="900" />
@@ -179,12 +168,12 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -233,6 +222,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -291,11 +281,6 @@
         <state relative-caret-position="-1225" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uuid-1.0.0/uuid.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-545" />
-      </provider>
-    </entry>
     <entry file="file:///usr/local/Cellar/go/1.10/src/crypto/sha256/sha256.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3788" />
@@ -304,6 +289,13 @@
     <entry file="file:///usr/local/Cellar/go/1.10/src/hash/hash.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-458" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uuid-1.0.0/uuid.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2160">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/userlib/userlib_test.go">
@@ -315,49 +307,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/userlib/userlib.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1656">
-          <caret line="155" column="36" lean-forward="true" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="36" />
+        <state relative-caret-position="125">
+          <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proj2/proj2_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="54" column="29" lean-forward="true" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-          <folding>
-            <element signature="e#2260#2304#0" />
-            <element signature="e#2360#2408#0" />
-            <element signature="e#2548#2596#0" />
-            <element signature="e#4120#4164#0" />
-            <element signature="e#4213#4257#0" />
-            <element signature="e#4311#4355#0" />
-            <element signature="e#4615#4676#0" />
-            <element signature="e#4744#4805#0" />
-            <element signature="e#5650#5711#0" />
-            <element signature="e#5916#5977#0" />
-            <element signature="e#6114#6199#0" />
-          </folding>
+        <state relative-caret-position="1248">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proj2/proj2.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-          <folding>
-            <element signature="e#23924#23945#0" />
-            <element signature="e#24583#24604#0" />
-            <element signature="e#24726#24747#0" />
-            <element signature="e#26148#26169#0" />
-            <element signature="e#27160#27181#0" />
-            <element signature="e#26921#26942#0" />
-            <element signature="e#27686#27703#0" />
-            <element signature="e#28564#28581#0" />
-            <element signature="e#28880#28897#0" />
-            <element signature="e#34956#35054#0" />
-            <element signature="e#35768#35770#0" />
-            <element signature="e#35996#36013#0" />
-          </folding>
+        <state relative-caret-position="322">
+          <caret line="826" column="25" lean-forward="true" selection-start-line="826" selection-start-column="25" selection-end-line="826" selection-end-column="25" />
         </state>
       </provider>
     </entry>

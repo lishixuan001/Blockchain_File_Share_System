@@ -55,7 +55,7 @@ func TestStorage(t *testing.T) {
 	// Alice loads from file1
 	v2, err2 := u.LoadFile("file1")
 	if err2 != nil {
-		t.Error("Failed to upload and download", err2)
+		t.Error("Failed to upload and download; ", err2)
 	}
 	t.Log("Alice loads 'file1'")
 
@@ -255,21 +255,7 @@ func TestRevoke(t *testing.T) {
 	}
 	t.Log("Bob's 'file2' and Carl's 'file3' are equal -- Correct!")
 
-	// Bob try revoke (should not work since not creator)
-	err = u2.RevokeFile("file2")
-	if err == nil {
-		t.Error("Non-Creator should not be able to Revoke File", err)
-	}
-	t.Log("Bob tries to revoke his 'file2' but failed -- Correct!")
-
-	// Carl try revoke (should not work since not creator)
-	err = u3.RevokeFile("file3")
-	if err == nil {
-		t.Error("Non-Creator should not be able to Revoke File", err)
-	}
-	t.Log("Carl tries to revoke her 'file3' but failed -- Correct!")
-
-	// Alice try revoke (should work since creator)
+	// Alice try revoke
 	err = u1.RevokeFile("file1")
 	if err != nil {
 		t.Error("Creator should be able to Revoke File", err)
@@ -281,7 +267,7 @@ func TestRevoke(t *testing.T) {
 	if err != nil {
 		t.Error("Failed to download the file from alice", err)
 	}
-	t.Log("Alice loaded 'file1'")
+	t.Log("Alice loaded 'file1' -- Correct!")
 
 	// Compare the file with the one before revoke
 	if !reflect.DeepEqual(originText, v1) {
@@ -292,16 +278,16 @@ func TestRevoke(t *testing.T) {
 	// Test Bob load file (should return nil)
 	v2, err = u2.LoadFile("file2")
 	if v2 != nil  {
-		t.Error("Non-Creator should not be able to access the file after Revoke", err)
+		t.Error("Should not be able to access the file after Alice Revoke", err)
 	}
-	t.Log("Bob loads 'file2'")
+	t.Log("Bob cannot load 'file2' -- Correct!")
 
 	// Test Carl load file (should return nil)
 	v3, err = u3.LoadFile("file3")
 	if v3 != nil  {
-		t.Error("Non-Creator should not be able to access the file after Revoke", err)
+		t.Error("Should not be able to access the file after Alice Revoke", err)
 	}
-	t.Log("Carl loads 'file3'")
+	t.Log("Carl cannot loads 'file3' -- Correct!")
 
 	// Alice do some append again
 	// Create the message to be appended

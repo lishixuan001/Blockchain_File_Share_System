@@ -4,7 +4,6 @@ package proj2
 // imports it will break the autograder, and we will be Very Upset.
 
 import (
-	"fmt"
 	// You neet to add with
 	// go get github.com/nweaver/cs161-p2/userlib
 	"github.com/nweaver/cs161-p2/userlib"
@@ -78,8 +77,7 @@ func bytesToUUID(data []byte) (ret uuid.UUID) {
 // be public (start with a capital letter)
 type User struct {
 	// User Info
-	Username string
-	Password string
+	Identity string
 	KeyEncrypt []byte
 	KeyNonce []byte
 	KeyHMAC []byte
@@ -112,13 +110,12 @@ type UserData struct {
 // You can assume the user has a STRONG password
 func InitUser(username string, password string) (userdataptr *User, err error) {
 	var userdata User
-	userdata.Username = username
-	userdata.Password = password
+	userdata.Identity = uuid.New().String()
 
 	// Generate Functional (Location - Keys) pair in DataStorage
 	keyString := userlib.Argon2Key([]byte(password), []byte(username), 64)
 	// Locations
-	storageLocation := string(keyString[0:16])
+	storageLocation := keyString[0:16]
 	// Keys
 	encryptKey := keyString[16:32]
 	hmacKey := keyString[32:48]
@@ -137,7 +134,7 @@ func InitUser(username string, password string) (userdataptr *User, err error) {
 
 	// Store PublicKey on Keystore which is believed to be secure
 	publicKey := userdata.PrivateKey.PublicKey
-	userlib.KeystoreSet(userdata.Username, publicKey)
+	userlib.KeystoreSet(username, publicKey)
 
 	// Marshal the user -- []byte
 	marshaluser, err := json.Marshal(userdata)
@@ -166,7 +163,7 @@ func InitUser(username string, password string) (userdataptr *User, err error) {
 		return nil, err
 	}
 
-	userlib.DatastoreSet(storageLocation, marshalUploadedData)
+	userlib.DatastoreSet(string(storageLocation), marshalUploadedData)
 
 	// Here err only represents private key creation error
 	return &userdata, err
@@ -344,7 +341,7 @@ func (userdata *User) StoreFile(filename string, data []byte) {
 
 	// Create the access address encoded by Alice's password and Alice's filename
 	// 1. Create the access address
-	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Password), 16)
+	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Identity), 16)
 	// 2. Generate the file info Alice need to find and open the file
 	// The materials needed are fileMetaStorage -> [(fileLinkStorageAddr, keyFile, keyNonce, keyHMAC) <- (eryA), hmacA]
 	// (1) Store the metadata of file info for Alice in FileMeta struct
@@ -390,7 +387,7 @@ func (userdata *User) AppendFile(filename string, data []byte) (err error) {
 	// ========================================================= //
 
 	// Calculate the address storing the address for Bob's metadata for the file
-	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Password), 16)
+	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Identity), 16)
 	// Get the marshalFileMetaStorage where stores the FileMetaStorage
 	marshalFileMetaStorage, ok := userlib.DatastoreGet(string(userAccessAddr))
 	if !ok {
@@ -546,7 +543,7 @@ func (userdata *User) LoadFile(filename string) (data []byte, err error) {
 	// ========================================================= //
 
 	// Calculate the address storing the address for Bob's metadata for the file
-	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Password), 16)
+	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Identity), 16)
 	// Get the marshalFileMetaStorage where stores the FileMetaStorage
 	marshalFileMetaStorage, ok := userlib.DatastoreGet(string(userAccessAddr))
 	if !ok {
@@ -583,11 +580,6 @@ func (userdata *User) LoadFile(filename string) (data []byte, err error) {
 	keyFile := fileMeta.FileKey
 	keyNonce := fileMeta.FileNonce
 	keyHMAC := fileMeta.FileHMAC
-
-	// FIXME
-	fmt.Println("fileLSA -- Load")
-	fmt.Println(fileLinkStorageAddr)
-	fmt.Println()
 
 	// ================================================== //
 	// The SECOND part is to get the FileLink information //
@@ -634,11 +626,6 @@ func (userdata *User) LoadFile(filename string) (data []byte, err error) {
 
 	// Get address of the current file address
 	currentAddr := fileLink.CurrAddr
-
-	// FIXME
-	fmt.Println("currAddr -- Load")
-	fmt.Println(currentAddr)
-	fmt.Println()
 
 	// Get the marshaLFileData for current address
 	marshalFileData, ok := userlib.DatastoreGet(string(currentAddr))
@@ -749,7 +736,7 @@ func (userdata *User) ShareFile(filename string, recipient string) (msgid string
 	// ========================================================= //
 
 	// Calculate the address storing the address for Bob's metadata for the file
-	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Password), 16)
+	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Identity), 16)
 	// Get the marshalFileMetaStorage where stores the FileMetaStorage
 	marshalFileMetaStorage, ok := userlib.DatastoreGet(string(userAccessAddr))
 	if !ok {
@@ -891,7 +878,7 @@ func (userdata *User) ReceiveFile(filename string, sender string, msgid string) 
 
 	// Create the access address encoded by Bob's password and Bob's filename
 	// 1. Create the access address
-	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Password), 16)
+	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Identity), 16)
 	// 2. Generate the file info Bob need to find and open the file
 	// The materials needed are fileMetaStorage -> [(fileLinkStorageAddr, keyFile, keyNonce, keyHMAC) <- (eryB), hmacB]
 	// (1) Store the metadata of file info for Bob in FileMeta struct
@@ -939,7 +926,7 @@ func (userdata *User) RevokeFile(filename string) (err error) {
 	// ========================================================= //
 
 	// Calculate the address storing the address for Bob's metadata for the file
-	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Password), 16)
+	userAccessAddr := userlib.Argon2Key([]byte(filename), []byte(userdata.Identity), 16)
 	// Get the marshalFileMetaStorage where stores the FileMetaStorage
 	marshalFileMetaStorage, ok := userlib.DatastoreGet(string(userAccessAddr))
 	if !ok {
@@ -1058,6 +1045,9 @@ func (userdata *User) RevokeFile(filename string) (err error) {
 	decryptor := userlib.CFBDecrypter(keyFile, keyNonce)
 	decryptor.XORKeyStream(currFileContent, encryptedCurrFile)
 
+	// Delete the current address since finished loading
+	userlib.DatastoreDelete(string(currentAddr))
+
 	// 2. Then we iteratively load all appended content of the file
 
 	// Set a variable as the constriant variable for the "while" loop
@@ -1093,6 +1083,8 @@ func (userdata *User) RevokeFile(filename string) (err error) {
 		appendedContent = append(appendedContent, nextCurrFileContent...)
 		// Update the nextFileLink value
 		nextFileLink = nextFileLink.NextFileLink
+		// Delete the current address since finished loading
+		userlib.DatastoreDelete(string(nextCurrAddr))
 	}
 	// Concat all content for a full content
 	fullContent := append(currFileContent, appendedContent...)
@@ -1120,10 +1112,6 @@ func (userdata *User) RevokeFile(filename string) (err error) {
 	}
 	// Store the new file's data to the Datastore
 	userlib.DatastoreSet(string(newFileAddr), marshalNewFileData)
-
-	fmt.Println("fileAddr -- Revoke")
-	fmt.Println(newFileAddr)
-	fmt.Println()
 
 	// ======================================================== //
 	// The FIFTH part is to create a new file link storage and  //
@@ -1160,11 +1148,6 @@ func (userdata *User) RevokeFile(filename string) (err error) {
 	}
 	// Store the newFileLinkStorage info to the Datastore
 	userlib.DatastoreSet(string(newFileLinkStorageAddr), marshalNewFileLinkStorage)
-
-	// FIXME
-	fmt.Println("fileLSA -- Revoke")
-	fmt.Println(newFileLinkStorageAddr)
-	fmt.Println()
 
 	// ===================================================================== //
 	// The SIXTH part is to modify and re-store the metadata info of Alice's //
@@ -1210,6 +1193,7 @@ func (userdata *User) RevokeFile(filename string) (err error) {
 	// addresses and content 							       //
 	// ======================================================= //
 
+	userlib.DatastoreDelete(string(fileLinkStorageAddr))
 
 	return err
 }
